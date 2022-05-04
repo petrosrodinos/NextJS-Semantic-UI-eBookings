@@ -3,10 +3,9 @@ import UserAppointments from "../../components/user/UserAppointments";
 import BusinessAppointments from "../../components/business/BusinessAppointments";
 import UserComments from "../../components/user/UserComments";
 import BusinessComments from "../../components/business/BusinessComments";
-import { getSession, useSession } from "next-auth/client";
+import { getSession } from "next-auth/client";
 
 const Profile = ({ session }) => {
-  //const [session] = useSession();
   const panes = [
     {
       menuItem: "User Profile",
@@ -32,7 +31,7 @@ const Profile = ({ session }) => {
   return (
     <Tab
       style={{ paddingLeft: 50, paddingRight: 50, paddingTop: 70 }}
-      menu={{ secondary: false, pointing: true }}
+      menu={{ secondary: true, pointing: true, className: "wrapped" }}
       panes={panes}
     />
   );
@@ -68,7 +67,15 @@ const User = () => {
     },
   ];
   return (
-    <Tab menu={{ fluid: true, vertical: true, tabular: true }} panes={panes} />
+    <Tab
+      menu={{
+        fluid: true,
+        vertical: false,
+        tabular: true,
+        className: "wrapped",
+      }}
+      panes={panes}
+    />
   );
 };
 
@@ -119,7 +126,15 @@ const Business = () => {
     },
   ];
   return (
-    <Tab menu={{ fluid: true, vertical: true, tabular: true }} panes={panes} />
+    <Tab
+      menu={{
+        fluid: true,
+        vertical: false,
+        tabular: true,
+        className: "wrapped",
+      }}
+      panes={panes}
+    />
   );
 };
 

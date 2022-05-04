@@ -90,7 +90,7 @@ const createBusiness = async (req, res, next) => {
 
 const fetchBusinesses = async (req, res, next) => {
   try {
-    const businesses = await Business.find({});
+    const businesses = await Business.find({}, "-hours");
     return res.status(200).json({ businesses: businesses });
   } catch (error) {
     return res.status(400).send({ message: "Could not find any business" });
